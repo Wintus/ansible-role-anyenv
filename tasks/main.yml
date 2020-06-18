@@ -83,7 +83,7 @@
 - name: set Python versions
   shell: |
     source {{ bash_profile_dir }}/anyenv.sh
-    pyenv global {{ python2_version }} {{ python_version }}
+    pyenv global {{ python_version }} {{ python2_version }}
   args:
     executable: /bin/bash
   changed_when: no
