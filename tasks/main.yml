@@ -76,14 +76,10 @@
       env: pyenv
       version: "{{ python_version }}"
 
-    - name: python2
-      env: pyenv
-      version: "{{ python2_version }}"
-
 - name: set Python versions
   shell: |
     source {{ bash_profile_dir }}/anyenv.sh
-    pyenv global {{ python_version }} {{ python2_version }}
+    pyenv global {{ python_version }}
   args:
     executable: /bin/bash
   changed_when: no
