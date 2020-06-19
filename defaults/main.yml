@@ -1,2 +1,5 @@
 ---
-# defaults file for ansible-role-anyenv
+anyenv_root: "{{ ansible_env.HOME }}/.anyenv"
+
+python_version: 3.8.3
+ruby_version: 2.7.1

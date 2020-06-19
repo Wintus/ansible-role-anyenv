@@ -1,0 +1,18 @@
+---
+
+- name: "install {{ lang.name }} {{ lang.version }}"
+  shell: |
+    source {{ bash_profile_dir }}/anyenv.sh
+    {{ lang.env }} install {{ lang.version }} --skip-existing
+  args:
+    executable: /bin/bash
+  register: install
+  changed_when: install.stdout != ''
+
+- name: "set global version of {{ lang.name }}"
+  shell: |
+    source {{ bash_profile_dir }}/anyenv.sh
+    {{ lang.env }} global {{ lang.version }}
+  args:
+    executable: /bin/bash
+  changed_when: no
